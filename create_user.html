@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} Create a User {% endblock %}
+
+{% block content %}
+  <h1> Create a User </h1>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="alert alert-danger">
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <form method="POST">
+    <label for="fname">First name:</label>
+    <input type="text" id="fname" name="fname" required><br><br>
+    <label for="lname">Last name:</label>
+    <input type="text" id="lname" name="lname" required><br><br>
+    <label for="img">Image URL (optional):</label>
+    <input type="text" id="img" name="img"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+{% endblock %}
